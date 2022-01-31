@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block seo %}
+
+
+<title>Central Web Agency - CWA</title>
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<link rel="canonical" href=""/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+<meta name="googlebot" content="index,follow"/>
+
+<meta name="author" content="İhsan Gürol Demirtaş">
+
+<meta name="publisher" content="2020.01" />
+
+{% endblock %}
+
+
+
+
+{% block content %}
+{% include "navbar.html" %}
+<div class="vlt-site-overlay"></div>
+	<!--Main-->
+	<main class="vlt-main">
+		<!--Page content-->
+		<div class="vlt-page-content">
+			<!--Page title-->
+			<div class="vlt-page-title vlt-page-title--style-1">
+				<div class="container">
+					<h1 class="vlt-page-title__title">Projeler
+					</h1>
+				</div>
+			</div>
+			<div id="content"></div>
+			<!--Section-->
+			<section>
+				<div class="vlt-gap-120"></div>
+				<div class="container">
+					<!---div class="text-center">
+						<ul class="vlt-isotope-filters" id="vlt-filter-portfolio-13">
+							<li class="active" data-filter="*"><span>All</span></li>
+							<li data-filter=".filter-branding"><span>Branding</span></li>
+							<li data-filter=".filter-design"><span>Design</span></li>
+							<li data-filter=".filter-photography"><span>Photography</span></li>
+							<li data-filter=".filter-marketing"><span>Marketing</span></li>
+						</ul>
+					</div--->
+					<div class="vlt-gap-90"></div>
+					<div class="vlt-isotope-grid" data-columns="2" data-layout="masonry" data-x-gap="100|100" data-y-gap="100|100" data-controls="#vlt-filter-portfolio-13" data-load-more-selector="#vlt-load-more-portfolio-13">
+						<div class="grid-sizer"></div>
+						{% for r in ref %}
+						<div class=" grid-item filter-design">
+							<!--Portfolio item-->
+							<article class="vlt-work vlt-work--style-4">
+								<div class="vlt-work__media"><a class="vlt-work__link has-cursor" href="#"></a><img src="{% if r.image %}{{ r.image.url }}{% else %}{% endif %}" alt="" loading="lazy">
+								</div>
+								<div class="vlt-work__meta"><span class="vlt-work__category">CWA</span>
+									<h5 class="vlt-work__title">{{r.name}}
+									</h5>
+								</div>
+							</article>
+						</div>
+						{% endfor %}
+
+					</div>
+					<div class="vlt-gap-120"></div>
+					<!--div class="text-center">
+						<div id="vlt-load-more-portfolio-13"><a class="vlt-isotope-load-more" href="ajax/portfolio-13-load-more.html"><i class="icon-arrow-down"></i></a></div>
+					</div--->
+				</div>
+				<div class="vlt-gap-120"></div>
+			</section>
+		</div>
+	</main>
+{% include "footer.html" %}
+{% endblock %}
+
+
+{% block jss %}
+{% endblock %}

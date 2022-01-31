@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block seo %}
+
+
+<title>Central Web Agency - CWA</title>
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<link rel="canonical" href=""/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+<meta name="googlebot" content="index,follow"/>
+
+<meta name="author" content="İhsan Gürol Demirtaş">
+
+<meta name="publisher" content="2020.01" />
+
+{% endblock %}
+
+
+
+
+{% block content %}
+{% include "navbar.html" %}
+
+<div class="vlt-site-overlay"></div>
+	<!--Main-->
+	<main class="vlt-main">
+		<div class="vlt-page-content vlt-page-content--padding-top">
+			<!--Post content-->
+			<section>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 offset-md-2">
+							<!--Single post-->
+							<article class="vlt-single-post vlt-single-post--style-1">
+								<header class="vlt-single-post__header">
+									<h2 class="vlt-post-title">{{product.title}}</h2>
+									<div class="vlt-post-meta"><span>{{product.date}}</span><span>CWA</span></div>
+								</header>
+								<div class="vlt-single-post__content">
+									<p>{{product.info | safe }}</p>
+									<p>{{product.info2 | safe }}</p>
+									<div class="vlt-gap-30"></div>
+									<blockquote class="pullquote">“ {{product.red | safe }} ”</blockquote>
+									<div class="vlt-gap-60"></div>
+									<p>{{product.info3 | safe }}</p>
+									<div class="vlt-gap-40"></div>
+									<!--Simple image-->
+									<div class="vlt-gap-70"></div>
+									<h3>{{product.title2 | safe }}</h3>
+									<div class="vlt-gap-40"></div>
+									<p>{{product.info4 | safe }}</p>
+									<div class="vlt-gap-60"></div>
+									<blockquote>{{product.black | safe }}</blockquote>
+									<div class="vlt-gap-80"></div>
+									<!--Justified gallery-->
+									<div class="vlt-justified-gallery" data-row-height="360" data-margins="30">
+										<!--Simple image-->
+										<div class="vlt-simple-image">
+											<div class="vlt-simple-image__mask" data-aos="image-mask-animation" data-aos-delay="0">
+												<div class="inside"></div>
+											</div><img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt="" loading="lazy">
+										</div>
+									</div>
+								</div>
+
+
+							</article>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="vlt-page-navigation vlt-page-navigation--style-1 has-black-color">
+				<div class="vlt-gap-130"></div>
+				<div class="container">
+					<div class="text-center">
+						<!--Stroke text-->
+						<div class="vlt-stroke-text vlt-stroke-text--lg"><a href="/cwa/contact/" target="_self">İletişim</a>
+						</div>
+					</div>
+				</div>
+				<div class="vlt-gap-130"></div>
+			</section>
+		</div>
+	</main>
+
+
+{% include "footer.html" %}
+{% endblock %}
+
+
+{% block jss %}
+{% endblock %}

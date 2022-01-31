@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block seo %}
+
+
+<title>Central Web Agency - CWA</title>
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<link rel="canonical" href=""/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+<meta name="googlebot" content="index,follow"/>
+
+<meta name="author" content="İhsan Gürol Demirtaş">
+
+<meta name="publisher" content="2020.01" />
+
+{% endblock %}
+
+
+
+
+{% block content %}
+{% include "indexnavbar.html" %}
+	<div class="vlt-site-overlay"></div>
+	<!--Main-->
+	<main class="vlt-main">
+		<!--Page content-->
+		<div class="vlt-page-content">
+			<!--Section-->
+			<section class="has-black-background-color">
+				<!--Site fixed bar-->
+				<div class="vlt-site-fixed-bar vlt-site-fixed-bar--left has-white-color position-fixed">
+					<div class="flex-grow-0 flex-shrink-0"></div>
+					<div class="d-flex flex-grow-1 flex-shrink-1 align-items-center justify-content-center">
+						<div class="vlt-site-fixed-bar__socials"><a class="vlt-social-icon vlt-social-icon--style-1" href="https://www.centralwebagency.com/web-tasarim/">Www.</a><a class="vlt-social-icon vlt-social-icon--style-1" href="https://www.centralwebagency.com/seo/">Seo.</a><a class="vlt-social-icon vlt-social-icon--style-1" href="https://www.centralwebagency.com/dijital-pazarlama/">Dm.</a><a class="vlt-social-icon vlt-social-icon--style-1" href="https://www.centralwebagency.com/sosyal-medya/">Sm.</a><a class="vlt-social-icon vlt-social-icon--style-1" href="https://www.centralwebagency.com/kurumsal-kimlik/">Kk.</a><a class="vlt-social-icon vlt-social-icon--style-1" href="https://www.centralwebagency.com/pr-musteri-iliskiler/">Pr.</a><a class="vlt-social-icon vlt-social-icon--style-1" href="https://www.centralwebagency.com/e-ticaret/">Et.</a><a class="vlt-social-icon vlt-social-icon--style-1" href="https://www.centralwebagency.com/it-destek-bakim/">It.</a></div>
+					</div>
+					<div class="flex-grow-0 flex-shrink-0 text-center"><a class="vlt-site-fixed-bar__all-link" href="work-grid-3-col.html"><i class="icon-grid"></i></a></div>
+				</div>
+				<!--Site fixed bar-->
+				<div class="vlt-site-fixed-bar vlt-site-fixed-bar--right has-white-color position-fixed">
+					<div class="flex-grow-0 flex-shrink-0"></div>
+					<div class="d-flex flex-grow-1 flex-shrink-1 align-items-center justify-content-center">
+						<div class="vlt-swiper-progress vlt-homepage-10-anchor" data-direction="vertical"><span class="current"></span>
+							<div class="bar"><span></span></div><span class="total"></span>
+						</div>
+					</div>
+					<div class="flex-grow-0 flex-shrink-0"></div>
+				</div>
+				<!--Project showcase-->
+				<div class="vlt-project-showcase vlt-project-showcase--style-3" data-navigation-anchor=".vlt-homepage-10-anchor">
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							{% for c in category %}
+							<div class="swiper-slide">
+								<div class="vlt-project-showcase__item">
+									<div class="vlt-project-showcase__image"><img src="{% if c.image %}{{ c.image.url }}{% else %}{% endif %}" alt="" loading="lazy"></div>
+									<div class="vlt-project-showcase__next-slide">
+										<div class="container"><a href="#" style="background: transparent;"><span>Next Service</span><i class="icon-arrow-down"></i></a></div>
+									</div>
+									<div class="vlt-project-showcase__content" data-swiper-parallax-y="-300">
+										<div class="container">
+											<div class="row">
+												<div class="col-11 offset-1"><span class="vlt-project-showcase__category">{{c.name}}</span>
+													<h2 class="vlt-project-showcase__title has-cursor"><a href="#">{{c.title | safe}}</a></h2>
+													<p class="vlt-project-showcase__description" style="color:white;">{{c.title_info}}.</p>
+													<!--Simple link--><a class="vlt-simple-link vlt-simple-link--md" href="{{c.get_absolute_url}}" target="_self">Detay<i class="icon-arrow-top-right"></i></a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>
+
+{% endblock %}
+
+
+{% block jss %}
+{% endblock %}

@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block seo %}
+
+
+<title>Central Web Agency - CWA</title>
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<link rel="canonical" href=""/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+<meta name="googlebot" content="index,follow"/>
+
+<meta name="author" content="İhsan Gürol Demirtaş">
+
+<meta name="publisher" content="2020.01" />
+
+{% endblock %}
+
+
+
+
+{% block content %}
+{% include "navbar.html" %}
+<br>
+<br>
+<br>
+<div class="vlt-site-overlay"></div>
+	<!--Main-->
+	<main class="vlt-main">
+
+		<div class="vlt-page-content vlt-page-content--padding">
+			<!--Post content-->
+			<section>
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8">
+							<!--Single post-->
+							<article class="vlt-single-post vlt-single-post--style-2">
+								<header class="vlt-single-post__header">
+									<h2 class="vlt-post-title">{{product.title | safe }}</h2>
+									<div class="vlt-post-meta"><span>www.centralwebagency.com</span><span>Servislerimiz</span></div>
+								</header>
+								<div class="vlt-single-post__content">
+									<p>{{product.info | safe}}</p>
+									<div class="vlt-gap-40"></div>
+									<div class="position-relative d-flex align-items-end justify-content-end">
+										<!--Content slider-->
+										<div class="vlt-content-slider " data-navigation-anchor=".vlt-single-post-slider-anchor" data-gap="" data-loop="" data-speed="" data-autoplay="" data-autoplay-speed="" data-slides-centered="" data-slide-settings="{}" data-free-mode="" data-slider-offset="" data-mousewheel="">
+											<div class="swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide"><img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt="" loading="lazy"></div>
+												</div>
+											</div>
+										</div>
+										<!--Slider controls-->
+										<div class="vlt-slider-controls vlt-slider-controls--style-2 vlt-single-post-slider-anchor has-black-color has-white-background-color position-absolute b-0 r-0">
+											<div class="vlt-swiper-button-prev"><i class="icon-arrow-left"></i>
+											</div>
+											<div class="vlt-swiper-pagination"></div>
+											<div class="vlt-swiper-button-next"><i class="icon-arrow-right"></i>
+											</div>
+										</div>
+									</div>
+									<div class="vlt-gap-70"></div>
+									<h3>{{product.title2}}</h3>
+									<div class="vlt-gap-40"></div>
+									<p>{{product.info2 | safe}}</p>
+									<div class="vlt-gap-50"></div>
+									<blockquote>{{product.black | safe}}</blockquote>
+									<div class="vlt-gap-60"></div>
+
+								</div>
+
+
+							</article>
+
+						</div>
+						<div class="col-lg-4">
+							<!--Sidebar-->
+							<div class="vlt-sidebar vlt-sidebar--right">
+
+								<div class="vlt-widget vlt-widget--text">
+									<h5 class="vlt-widget__title">Profesyonel</h5>
+									<!--Simple image-->
+									<div class="vlt-simple-image">
+										<div class="vlt-simple-image__mask" data-aos="image-mask-animation" data-aos-delay="0">
+											<div class="inside"></div>
+										</div><img src="{% if product.personel %}{{ product.personel.url }}{% else %}{% endif %}" alt="" loading="lazy">
+									</div>
+									<p>{{product.personel_info | safe }}</p>
+									<div class="vlt-social-icons"><a class="vlt-social-icon vlt-social-icon--style-3" href="#"><i class="socicon-facebook"></i></a><a class="vlt-social-icon vlt-social-icon--style-3" href="#"><i class="socicon-twitter"></i></a><a class="vlt-social-icon vlt-social-icon--style-3" href="#"><i class="socicon-pinterest"></i></a><a class="vlt-social-icon vlt-social-icon--style-3" href="#"><i class="socicon-linkedin"></i></a></div>
+								</div>
+								<!--Widget-->
+								<div class="vlt-widget vlt-widget--recent-posts">
+									<h5 class="vlt-widget__title">Diğer Servislerimiz</h5>
+									{% for s in serviceinn %}
+									<div class="vlt-widget-post">
+										<div class="vlt-widget-post__thumbnail"><a href="{{s.get_absolute_url}}"><img src="{% if s.image %}{{ s.image.url }}{% else %}{% endif %}" alt="" loading="lazy"></a></div>
+										<div class="vlt-widget-post__content"><span>16 Jan, 2020 / Business</span>
+											<h5><a href="{{s.get_absolute_url}}">{{s.title}}</a></h5>
+										</div>
+									</div>
+									{% endfor %}
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<!--Page navigation-->
+		<section class="vlt-page-navigation vlt-page-navigation--style-2">
+			<div class="container">
+				<div class="vlt-page-comments__form">
+									<h3 class="vlt-page-comments__title">Bize Yaza Bilirsin:</h3>
+									<form method="post">
+										{% csrf_token %}
+										<div class="vlt-form-row two-col">
+											<div class="vlt-form-group">
+												<input class="vlt-form-control" name ="name" type="text" placeholder=" ">
+												<label class="vlt-form-label">İsminiz*</label>
+											</div>
+											<div class="vlt-form-group">
+												<input class="vlt-form-control" name="email" type="email" placeholder=" ">
+												<label class="vlt-form-label">Email Adresiniz*</label>
+											</div>
+										</div>
+										<div class="vlt-form-group">
+											<textarea class="vlt-form-control" rows="5" name="text" placeholder=" "></textarea>
+											<label class="vlt-form-label">Bizimle paylaşmak istedikleriniz*</label>
+										</div>
+										<p class="form-submit">
+											<!--Button-->
+											<button name="btnSubmit" type="submit" class="vlt-btn vlt-btn--secondary vlt-btn--lg">Gönder
+											</button>
+										</p>
+									</form>
+								</div>
+			</div>
+		</section>
+	</main>
+<br>
+{% include "footer.html" %}
+{% endblock %}
+
+
+{% block jss %}
+{% endblock %}

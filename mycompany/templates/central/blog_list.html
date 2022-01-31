@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block seo %}
+
+
+<title>Central Web Agency - CWA</title>
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<link rel="canonical" href=""/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+<meta name="googlebot" content="index,follow"/>
+
+<meta name="author" content="İhsan Gürol Demirtaş">
+
+<meta name="publisher" content="2020.01" />
+
+{% endblock %}
+
+
+
+
+{% block content %}
+{% include "navbar.html" %}
+<!--Site overlay-->
+	<div class="vlt-site-overlay"></div>
+	<!--Main-->
+	<main class="vlt-main">
+		<!--Page content-->
+		<div class="vlt-page-content">
+			<!--Page title-->
+			<div class="vlt-page-title vlt-page-title--style-1">
+				<div class="container">
+					<h1 class="vlt-page-title__title">Blog
+					</h1>
+				</div>
+			</div>
+			<div id="content"></div>
+			<!--Section-->
+			<section>
+				<div class="vlt-gap-120"></div>
+				<div class="container">
+					<!---div class="text-center">
+						<ul class="vlt-isotope-filters" id="vlt-filter-blog-02">
+							<li class="active" data-filter="*"><span>All</span></li>
+							<li data-filter=".filter-company"><span>Company</span></li>
+							<li data-filter=".filter-design"><span>Design</span></li>
+							<li data-filter=".filter-lifestyle"><span>Lifestyle</span></li>
+							<li data-filter=".filter-business"><span>Business</span></li>
+						</ul>
+					</div---->
+					<div class="vlt-gap-90"></div>
+					<div class="row">
+						<div class="col-md-10 offset-md-1">
+							<div class="vlt-isotope-grid" data-columns="1" data-layout="masonry" data-x-gap="0|0" data-y-gap="80|80" data-controls="#vlt-filter-blog-02" data-load-more-selector="#vlt-load-more-blog-02">
+								<div class="grid-sizer"></div>
+								{% for b in blog %}
+								<div class=" grid-item filter-design">
+									<!--Blog item-->
+									<article class="vlt-post vlt-post--style-4">
+										<div class="vlt-post__media"><a class="vlt-post__link" href="{{b.get_absolute_url}}"></a><img width="600" src="{% if b.image %}{{ b.image.url }}{% else %}{% endif %}" alt="" loading="lazy">
+										</div>
+										<div class="vlt-post__content">
+											<header class="vlt-post__header">
+												<div class="vlt-post-meta"><span>{{b.date}}</span><span>CWA</span>
+												</div>
+												<h3 class="vlt-post-title"><a href="{{b.get_absolute_url}}">{{b.title}}</a>
+												</h3>
+											</header>
+											<div class="vlt-post-excerpt">
+												<p>{{b.title_info}}
+												</p>
+											</div>
+										</div>
+									</article>
+								</div>
+								{% endfor %}
+							</div>
+							<div class="vlt-gap-100"></div>
+						</div>
+					</div>
+				</div>
+				<div class="vlt-gap-120"></div>
+			</section>
+		</div>
+	</main>
+{% include "footer.html" %}
+{% endblock %}
+
+
+{% block jss %}
+{% endblock %}

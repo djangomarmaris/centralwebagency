@@ -1,0 +1,49 @@
+{% load static %}
+
+<footer class="vlt-footer vlt-footer--style-1">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3">
+					<!--Widget-->
+					<div class="vlt-widget vlt-widget--html vlt-widget--white"><a href="index.html"><img width="100" src="{% static 'cwa2.png' %}" alt=""  loading="lazy"></a></div>
+				</div>
+				<div class="col-lg-2 col-sm-6">
+					<!--Widget-->
+					<div class="vlt-widget vlt-widget--text vlt-widget--white">
+						<ul>
+							<li><a href="/">Ana Sayfa</a></li>
+							<li><a href="/cwa/about/">Hakkımızda</a></li>
+							<li><a href="/referance/">Projeler</a></li>
+							<li><a href="/cwa/blog/list/">Blog</a></li>
+							<li><a href="#">İletişim</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2 col-sm-6">
+					<!--Widget-->
+					<div class="vlt-widget vlt-widget--text vlt-widget--white">
+						<ul>
+							{% for s in service %}
+							<li><a href="{{s.get_absolute_url}}">{{s.title}}</a></li>
+							{% endfor %}
+
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="vlt-widget vlt-widget--text vlt-widget--white">
+						<ul>
+							{% for s in last %}
+							<li><a href="{{s.get_absolute_url}}">{{s.title}}</a></li>
+							{% endfor %}
+
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2 col-sm-6">
+					<!--Widget-->
+					<div class="vlt-widget vlt-widget--text vlt-widget--white"><a href="mailto:cwa@centralwebagency.com">cwa@centralwebagency.com</a></div>
+				</div>
+			</div>
+		</div>
+	</footer>
